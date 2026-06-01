@@ -1,0 +1,28 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "outputDirectory": "dist",
+  "env": [
+    {
+      "key": "VITE_SUPABASE_URL",
+      "description": "Supabase project URL"
+    },
+    {
+      "key": "VITE_SUPABASE_PUBLISHABLE_KEY",
+      "description": "Supabase publishable anon key"
+    },
+    {
+      "key": "VITE_SUPABASE_PROJECT_ID",
+      "description": "Supabase project ID"
+    }
+  ],
+  "functions": {
+    "supabase/functions/chat": {
+      "memory": 1024,
+      "maxDuration": 60,
+      "runtime": "edge"
+    }
+  }
+}

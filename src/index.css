@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Mukta+Malar:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Agricultural Theme - Earthy Greens */
+    --background: 45 30% 97%;
+    --foreground: 120 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 120 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 25% 15%;
+
+    /* Primary - Fresh Green */
+    --primary: 142 55% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Warm Earth */
+    --secondary: 35 45% 92%;
+    --secondary-foreground: 30 30% 25%;
+
+    --muted: 45 20% 90%;
+    --muted-foreground: 120 10% 45%;
+
+    /* Accent - Golden Harvest */
+    --accent: 40 85% 55%;
+    --accent-foreground: 30 30% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 45 20% 85%;
+    --input: 45 20% 88%;
+    --ring: 142 55% 35%;
+
+    --radius: 1rem;
+
+    /* Custom Agricultural Colors */
+    --leaf: 142 55% 35%;
+    --leaf-light: 142 45% 92%;
+    --soil: 30 35% 25%;
+    --wheat: 40 75% 60%;
+    --sky: 200 80% 55%;
+    --sunrise: 25 90% 60%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 120 15% 10%;
+    --foreground: 45 30% 95%;
+
+    --card: 120 15% 13%;
+    --card-foreground: 45 30% 95%;
+
+    --popover: 120 15% 13%;
+    --popover-foreground: 45 30% 95%;
+
+    --primary: 142 50% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 20% 20%;
+    --secondary-foreground: 45 30% 95%;
+
+    --muted: 120 15% 18%;
+    --muted-foreground: 45 15% 60%;
+
+    --accent: 40 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 120 15% 20%;
+    --input: 120 15% 20%;
+    --ring: 142 50% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+  }
+
+  /* Tamil typography: use a font designed for Tamil script with comfortable
+     line-height and slightly looser letter-spacing so compound characters
+     don't feel cramped. */
+  html[lang="ta"] body,
+  html[lang="ta"] button,
+  html[lang="ta"] input,
+  html[lang="ta"] textarea,
+  html[lang="ta"] select {
+    font-family: 'Noto Sans Tamil', 'Mukta Malar', 'Poppins', sans-serif;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  html[lang="ta"] body {
+    line-height: 1.7;
+    letter-spacing: 0.005em;
+  }
+
+  html[lang="ta"] h1,
+  html[lang="ta"] h2,
+  html[lang="ta"] h3,
+  html[lang="ta"] h4 {
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+
+  /* Tamil words don't break mid-syllable — keep them whole when possible */
+  html[lang="ta"] p,
+  html[lang="ta"] span,
+  html[lang="ta"] label,
+  html[lang="ta"] button,
+  html[lang="ta"] a {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  /* Tamil UI spacing adjustments - increase padding/margins for better readability */
+  html[lang="ta"] button,
+  html[lang="ta"] [role="button"] {
+    padding-left: calc(var(--spacing-px, 1px) * 6);
+    padding-right: calc(var(--spacing-px, 1px) * 6);
+  }
+
+  html[lang="ta"] input,
+  html[lang="ta"] textarea,
+  html[lang="ta"] select {
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+  }
+
+  /* Tamil: Increase card/container padding */
+  html[lang="ta"] .card,
+  html[lang="ta"] [class*="card"],
+  html[lang="ta"] .container,
+  html[lang="ta"] [class*="container"] {
+    padding: 1.25rem;
+  }
+
+  /* Tamil: Increase gaps in flex/grid layouts */
+  html[lang="ta"] [class*="gap"],
+  html[lang="ta"] .flex,
+  html[lang="ta"] .grid {
+    gap: 1rem;
+  }
+
+  /* Tamil: Increase margin between text elements */
+  html[lang="ta"] p {
+    margin-bottom: 1rem;
+  }
+
+  html[lang="ta"] h1,
+  html[lang="ta"] h2,
+  html[lang="ta"] h3,
+  html[lang="ta"] h4,
+  html[lang="ta"] h5,
+  html[lang="ta"] h6 {
+    margin-bottom: 0.875rem;
+  }
+
+  /* Tamil: Adjust list item spacing */
+  html[lang="ta"] li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Tamil: Increase padding for dialog/modal content */
+  html[lang="ta"] [role="dialog"],
+  html[lang="ta"] .dialog-content,
+  html[lang="ta"] .modal,
+  html[lang="ta"] [class*="modal"] {
+    padding: 1.5rem;
+  }
+
+  /* Tamil: Increase padding for alerts and notifications */
+  html[lang="ta"] [role="alert"],
+  html[lang="ta"] .alert,
+  html[lang="ta"] [class*="alert"] {
+    padding: 1rem;
+  }
+
+  /* Mobile-first touch optimization */
+  button, a, input, select {
+    @apply touch-manipulation;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/90 backdrop-blur-sm shadow-lg;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Safe area for mobile */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+}
+
+/* Custom scrollbar for mobile */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 4px;
+}
